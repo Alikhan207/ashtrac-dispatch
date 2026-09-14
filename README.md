@@ -1,4 +1,4 @@
-# Ashtrac Dispatch — Combined Repo
+# Ashtrac Dispatch
 
 An AI dispatch agent built on CALL-E: calls real service providers about an
 urgent need, adapts when one says no, and stops at the first confirmed yes
