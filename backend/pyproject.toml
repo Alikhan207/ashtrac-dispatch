@@ -1,0 +1,14 @@
+[project]
+name = "ashtrac-dispatch"
+version = "0.1.0"
+description = "AI dispatch agent built on CALL-E: calls providers, adapts on 'no', confirms the best option."
+requires-python = ">=3.10"
+dependencies = [
+    "calle-ai==0.7.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.setuptools.packages.find]
+include = ["ashtrac_dispatch*"]

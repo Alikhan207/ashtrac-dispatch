@@ -1,0 +1,20 @@
+[
+  {
+    "id": "provider_1",
+    "name": "Provider A (fill in a real name)",
+    "category": "home_repair",
+    "phone": "+91XXXXXXXXXX"
+  },
+  {
+    "id": "provider_2",
+    "name": "Provider B (fill in a real name)",
+    "category": "home_repair",
+    "phone": "+91XXXXXXXXXX"
+  },
+  {
+    "id": "provider_3",
+    "name": "Provider C (fill in a real name)",
+    "category": "general",
+    "phone": "+91XXXXXXXXXX"
+  }
+]

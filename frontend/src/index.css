@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light template base */
+    --background: 255 255 255;
+    --foreground: 20 20 20;
+
+    --card: 255 255 255;
+    --card-foreground: 50 50 50;
+
+    --popover: 255 255 255;
+    --popover-foreground: 50 50 50;
+
+    /* Accent / "confirmed" — violet */
+    --primary: 97 66 255;
+    --primary-foreground: 255 255 255;
+
+    --secondary: 244 244 244;
+    --secondary-foreground: 50 50 50;
+
+    --muted: 244 244 244;
+    --muted-foreground: 110 110 110;
+
+    /* "unavailable" — amber */
+    --warning: 217 119 6;
+    --warning-foreground: 255 255 255;
+
+    --accent: 244 244 244;
+    --accent-foreground: 50 50 50;
+
+    --destructive: 220 38 38;
+    --destructive-foreground: 255 255 255;
+
+    --border: 230 230 230;
+    --input: 230 230 230;
+    --ring: 97 66 255;
+
+    --radius: 1.5rem;
+
+    /* Gradients / shadows */
+    --gradient-violet: linear-gradient(135deg, rgba(97, 66, 255, 1), rgba(139, 102, 255, 1));
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    --shadow-violet-glow: 0 0 60px rgba(97, 66, 255, 0.3);
+    --shadow-card: 0 4px 24px rgba(20, 20, 20, 0.08);
+    --shadow-elevated: 0 20px 60px rgba(20, 20, 20, 0.15);
+
+    --spacing-base: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 40px;
+    --spacing-2xl: 60px;
+    --spacing-3xl: 80px;
+    --spacing-4xl: 120px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground bg-background text-base leading-[1.4] antialiased;
+    font-family: 'Inter Tight', system-ui, sans-serif;
+  }
+
+  .h1 {
+    @apply text-[36px] md:text-[54px] lg:text-[68px] font-semibold leading-[1.2] tracking-tight;
+  }
+  .h2 {
+    @apply text-[32px] md:text-[48px] lg:text-[60px] font-semibold leading-[1.2] tracking-tight;
+  }
+  .h3 {
+    @apply text-[32px] sm:text-[36px] md:text-[40px] lg:text-[44px] font-semibold leading-[1.2] tracking-tight;
+  }
+  .h4 {
+    @apply text-[28px] sm:text-[30px] md:text-[32px] lg:text-[36px] font-semibold leading-[1.3] tracking-tight;
+  }
+  .h5 {
+    @apply text-[20px] sm:text-[22px] md:text-[23px] lg:text-[24px] font-medium leading-[1.4] tracking-tight;
+  }
+  .h6 {
+    @apply text-lg sm:text-[20px] md:text-[21px] lg:text-[22px] font-medium leading-[1.4] tracking-tight;
+  }
+  .paragraph-regular {
+    @apply text-base leading-[1.4];
+  }
+  .paragraph-large {
+    @apply text-lg leading-[1.4];
+  }
+  .paragraph-small {
+    @apply text-sm leading-[1.4];
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-xl border border-border rounded-3xl shadow-lg;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-violet);
+  }
+  .glow-accent {
+    box-shadow: var(--shadow-violet-glow);
+  }
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+  .hover-lift:hover {
+    @apply -translate-y-0.5;
+    box-shadow: var(--shadow-elevated);
+  }
+}
+
+@layer utilities {
+  /* Pulsing live-call dot */
+  .pulse-dot {
+    @apply relative inline-flex h-2.5 w-2.5 rounded-full bg-primary;
+  }
+  .pulse-dot::before {
+    content: "";
+    @apply absolute inset-0 rounded-full bg-primary;
+    animation: pulse-ring 1.6s ease-out infinite;
+  }
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.7; }
+    100% { transform: scale(2.6); opacity: 0; }
+  }
+
+  /* Call waveform bars */
+  .wave-bar {
+    @apply inline-block w-[3px] rounded-full bg-primary;
+    animation: call-wave 1s ease-in-out infinite;
+  }
+  .wave-bar:nth-child(2) { animation-delay: 0.15s; }
+  .wave-bar:nth-child(3) { animation-delay: 0.3s; }
+  .wave-bar:nth-child(4) { animation-delay: 0.45s; }
+  @keyframes call-wave {
+    0%, 100% { height: 6px; opacity: 0.6; }
+    50% { height: 16px; opacity: 1; }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+  @keyframes fade-in {
+    0% { opacity: 0; transform: translateY(12px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+}
